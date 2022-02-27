@@ -1,8 +1,7 @@
-import React, {InputHTMLAttributes} from 'react';
+import React, {ButtonHTMLAttributes} from 'react';
 
-interface Props extends InputHTMLAttributes<HTMLInputElement>  {
+interface Props extends ButtonHTMLAttributes<HTMLButtonElement>  {
     text: string;
-    type: string;
     onClick: () => void;
     children?: React.ReactNode;
 }
@@ -12,6 +11,7 @@ const Button: React.FC<Props> = (props) => {
         <div>
             <button 
                 onClick={props.onClick}
+                type={'button'}
                 >
                 {props.children}
             </button>
