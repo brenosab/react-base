@@ -14,9 +14,9 @@ const Signin: React.FC = () => {
                     <Input name='email' placeholder='E-mail' autoComplete='false'/>
                     <Input name='password' type='password' placeholder='Senha'/>
                     <Button 
-                        type='submit' 
+                        type='button'
                         text='text' 
-                        onClick={() => {console.log('click')}}
+                        onClick={() => {console.log('do nothing')}}
                         children = "Acessar"
                     />
                 </form>
