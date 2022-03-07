@@ -13,6 +13,9 @@ export const Content = styled.div`
   align-items: center;
   place-content: center;
   width: 100%;
+  margin: 50px;
+  background-color: #90b3f7;
+  border-radius: 10px;
   form {
     margin: 80px 0;
     width: 340px;

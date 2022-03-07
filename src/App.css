@@ -13,6 +13,25 @@
   }
 }
 
+.react-table, th, td {
+  border: 1px 2px 1px solid;
+  padding: 10px;
+}
+
+thead{
+  background-color: white;
+}
+tbody{
+  background-color: white;
+  padding: 10px;
+}
+
+tr{
+  padding: 10px;
+  text-align: "center"; 
+  margin: "2rem 2rem 1rem";
+}
+
 .header {
   padding: 5px;
   width: 600px;
