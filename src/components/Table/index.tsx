@@ -1,46 +1,48 @@
 import React, { TableHTMLAttributes } from 'react';
-import { Row, Col, Button, Container } from "react-bootstrap";
+import { Table } from "react-bootstrap";
 import '../../App.css';
 
-interface TableProps {
+type PrimitiveType = string | Symbol | number | boolean;
+interface TableProps{
     title: string;
     cols: any[];
     list: any[];
+    headers: any[];
+}
+interface MinTableItem {
+    id: PrimitiveType;
 }
 
-const Table: React.FC<TableProps> = (props) => {
+function objectValues<T extends {}>(obj: T){
+    return Object.keys(obj).map((objKey) => obj[objKey as keyof T]);
+}
+
+const TablePagination: React.FC<TableProps> = (props) => {
     const {
         title,
         cols = [],
         list = [],
+        headers = []
     } = props;
 
     return (
-        <Row>
-            <Row className='header'>
-                <Col md={{ offset: 4, span:4 }}>{props.title}</Col>
-            </Row>
-            <Row className='header'>
-                {props.cols.map((collumn, index) => (
-                    <Col md={2} key={index} className="col-header" >
-                        {collumn.Header}
-                    </Col>
+        <Table className='react-table' striped bordered={true} hover>
+            <thead>
+                {objectValues(props.headers).map((header) => (
+                    <th>{header.Header}</th>
                 ))}
-            </Row>
-            <Row>
-                {props.list.map((data, index) => (
-                    <Row key={index}>
-                        <Col md={2} className="col-header" >
-                            {data.id}
-                        </Col>
-                        <Col md={2} className="col-header" >
-                            {data.nome}
-                        </Col>
-                    </Row>
+            </thead>
+            <tbody>
+                {props.list.map((item) => (
+                    <tr>
+                        {objectValues(item).map((entry) => (
+                            <td>{entry}</td>
+                        ))}
+                    </tr>
                 ))}
-            </Row>
-        </Row>
+            </tbody>
+        </Table>
       );
 }
 
-export default Table;
+export default TablePagination;
