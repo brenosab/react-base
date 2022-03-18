@@ -1,7 +1,9 @@
-import React from 'react';
-
+import React, { useState } from 'react';
+import { Row, Col } from 'react-bootstrap';
 import { Container, Content } from './styles';
 import Table from '../../components/Table';
+import Input from '../../components/Input';
+import Button from '../../components/Button';
 
 const Form: React.FC = () => {
     const columns = [
@@ -58,9 +60,35 @@ const Form: React.FC = () => {
             profisao: 'professor'
         },
     ];
+
+    const [filter, setFilter] = useState({ nome: "", idade: "" });
+
+
     return (
         <Container>
             <Content>
+                <Row className="filtros">
+                    <Col md={6} className="col">
+                        <div>Nome: </div>
+                        <Input name='nome'
+                            input={["nome", filter, setFilter]}
+                        />
+                    </Col>
+                    <Col md={6} className="col">
+                        <div>Idade:</div>
+                        <Input name='idade'
+                            input={["idade", filter, setFilter]}
+                        />
+                    </Col>
+                    <Button 
+                        type='button'
+                        text='text' 
+                        onClick={() => { 
+                            console.log(filter.idade);
+                        }}
+                        children = "Acessar"
+                    />
+                </Row>
                 <Table
                     cols={columns}
                     list={list}

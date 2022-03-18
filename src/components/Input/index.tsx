@@ -1,13 +1,26 @@
-import React, { InputHTMLAttributes } from 'react';
+import React, { InputHTMLAttributes, useCallback } from 'react';
 
 interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
-    name: string;
+    name: string,
+    input: any[],
 }
 
 const Input: React.FC<InputProps> = (props) => {
-    return (
+    const {
+        input = ["", {}, () => {}],
+      } = props;
+      const [key, state, set] = input;
+      return (
         <div>
-            <input { ... props }/>
+            <input { ... props } 
+                value={state[key]}
+                onChange={useCallback(
+                    (e) => {
+                    set({ ...state, [key]: e.target.value });
+                    },
+                    [set, state, key]
+                )}
+            />
         </div>
     );
 }

@@ -11,8 +11,8 @@ const Signin: React.FC = () => {
             <Content>
                 <form>
                     <h1>Faça seu login</h1>
-                    <Input name='email' placeholder='E-mail' autoComplete='false'/>
-                    <Input name='password' type='password' placeholder='Senha'/>
+                    <Input name='email' placeholder='E-mail' autoComplete='false' input={[]}/>
+                    <Input name='password' type='password' placeholder='Senha' input={[]}/>
                     <Button 
                         type='button'
                         text='text' 
