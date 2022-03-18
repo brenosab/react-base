@@ -16,6 +16,10 @@ export const Content = styled.div`
   margin: 50px;
   background-color: #90b3f7;
   border-radius: 10px;
+  .col{
+    display: inline-block;
+    margin: 10px;
+  }
   form {
     margin: 80px 0;
     width: 340px;
@@ -31,9 +35,6 @@ export const Content = styled.div`
       padding: 16px;
       width: 100%;
       color: #f4ede8;
-      & + input {
-        margin-top: 8px;
-      }
     }
     button {
       background: #ff9000;
